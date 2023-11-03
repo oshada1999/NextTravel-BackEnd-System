@@ -1,10 +1,10 @@
-package lk.ijse.travelPackage.Serviceregisrty;
+package lk.ijse.travelPackage.apigateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServiceRegisrtyApplicationTests {
+class ApiGatewayApplicationTests {
 
 	@Test
 	void contextLoads() {
