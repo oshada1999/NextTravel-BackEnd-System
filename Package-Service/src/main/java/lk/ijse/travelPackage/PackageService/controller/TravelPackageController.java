@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/package")
@@ -29,5 +30,15 @@ public class TravelPackageController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllTravelPackage() {
         return new ResponseUtil(200, "AllPackagesGet", travelPackageService.getAllTravelPackages());
+    }
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil updateTravelPackage(@RequestPart("file") MultipartFile file,
+                                      @RequestPart("TravelPackage") TravelPackageDTO travelPackageDTO) throws IOException {
+        return new ResponseUtil(200, "update", travelPackageService.updateTravelPackage(travelPackageDTO, file));
+    }
+    @DeleteMapping(params = {"packageId"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseUtil deletePackage(@RequestParam int packageId) {
+        travelPackageService.deletePackage(packageId);
+        return new ResponseUtil(200, "deleted", null);
     }
 }

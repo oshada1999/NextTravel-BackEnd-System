@@ -11,4 +11,8 @@ public interface TravelPackageService {
     TravelPackageDTO saveTravelPackage(TravelPackageDTO travelPackageDTO, MultipartFile file) throws IOException;
 
     List<TravelPackageDTO> getAllTravelPackages();
+
+    TravelPackageDTO updateTravelPackage(TravelPackageDTO travelPackageDTO, MultipartFile file) throws IOException;
+
+    void deletePackage(int packageId);
 }
